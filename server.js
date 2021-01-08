@@ -5,12 +5,14 @@ const article = require('./models/article');
 const articleRouter = require('./routes/articles')
 const Article = require('./models/article')
 const methodOverride = require('method-override')
+require('dotenv').config();
 const app = express();
 
-mongoose.connect('mongodb://localhost/blog', {useNewUrlParser: 
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: 
 true, useUnifiedTopology: true, useCreateIndex: true})
 
 app.set('view engine', 'ejs')
+app.set( 'port', ( process.env.PORT || 3000 ));
 
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
