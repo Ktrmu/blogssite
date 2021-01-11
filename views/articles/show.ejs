@@ -24,9 +24,9 @@
              <%= article.createdAt.toLocaleDateString() %>
        </div>
        <a href="/" class="btn btn-secondary">All articles</a>
-       <a href="/article/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+       <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
 
-       <div></div><%= article.markdown %></div>
+       <div></div><%- article.sanitizedHtml %></div>
        </div>
    </div>
 </body>
